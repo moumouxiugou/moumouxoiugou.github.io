@@ -97,7 +97,15 @@
         .contact li a:hover {
             text-decoration: underline;
         }
+/* 给关于我和联系方式板块加悬停放大动画 */
+.intro, .contact {
+  transition: transform 0.3s ease;
+}
 
+.intro:hover, .contact:hover {
+  transform: scale(1.03);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
         /* 底部版权 */
         footer {
             text-align: center;
