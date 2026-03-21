@@ -106,7 +106,31 @@
   transform: scale(1.03);
   box-shadow: 0 5px 15px rgba(0,0,0,0.15);
 }
-        /* 底部版权 */
+        /* 文章板块样式 */
+.blog {
+  margin: 30px 0;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+.blog:hover {
+  transform: scale(1.02);
+}
+.article {
+  margin: 20px 0;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+.article h3 {
+  font-size: 1.3rem;
+  color: #2c3e50;
+}
+.article p {
+  line-height: 1.6;
+  color: #555;
+}
         footer {
             text-align: center;
             margin-top: 50px;
@@ -165,7 +189,6 @@
             <ul>
                 <li>GitHub：<a href="https://github.com/moumouxoiugou" target="_blank">@moumouxoiugou</a></li>
                 <li>邮箱：moumouxiugou@163.com</li>
-                <li>备注：13631197325</li>
             </ul>
         </section>
 
@@ -173,6 +196,15 @@
         <footer>
             © 2026 我的个人主页 | 基于 GitHub Pages 搭建
         </footer>
-    </div>
+        <!-- 文章板块 -->
+<div class="blog">
+  <h2>我的文章</h2>
+  
+  <div class="article">
+    <h3>第一篇文章：我的个人网站诞生记</h3>
+    <p>今天我完成了人生第一个个人网站的搭建！从添加 Minecraft 玫瑰花海图片，到给图片和板块加悬停放大动画，再到创建专属的写文章分支，每一步都超有成就感。</p>
+    <p>接下来我还想写更多关于我的世界游戏、学习编程的小笔记，把这个网站变成我的小小天地。</p>
+  </div>
+</div>
 </body>
 </html>
