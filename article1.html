@@ -3,8 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>我的个人网站诞生记 - 我的博客</title>
+  <title>我的个人网站诞生记 - 我的博客</title>
   <style>
+    /* 全局流畅过渡 */
+    * {
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
     /* 文章页面样式，和主页保持一致 */
     body {
       font-family: "Microsoft YaHei", sans-serif;
@@ -13,25 +18,27 @@
       padding: 20px;
       background-color: #f5f5f5;
       color: #333;
-      transition: all 0.3s;
     }
+
     .article-container {
       background: #fff;
       padding: 30px;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: all 0.3s;
     }
+
     h1 {
       color: #2c3e50;
       border-bottom: 2px solid #eee;
       padding-bottom: 10px;
     }
+
     p {
       line-height: 1.8;
       color: #555;
       margin: 15px 0;
     }
+
     /* 返回主页按钮 */
     .back-home {
       display: inline-block;
@@ -42,6 +49,7 @@
       text-decoration: none;
       border-radius: 5px;
     }
+
     .back-home:hover {
       background: #2980b9;
     }
@@ -51,14 +59,17 @@
       background-color: #1a1a1a;
       color: #eee;
     }
+
     body.dark .article-container {
       background-color: #2a2a2a;
       color: #eee;
     }
+
     body.dark h1,
     body.dark p {
       color: #eee !important;
     }
+
     body.dark h1 {
       border-color: #444;
     }
@@ -76,9 +87,6 @@
       cursor: pointer;
       z-index: 999;
     }
-    * {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
   </style>
 </head>
 
@@ -94,31 +102,31 @@
   </div>
 
   <!-- 夜间模式按钮 & 脚本 -->
- <button class="dark-mode-btn" id="toggleBtn">🌙 夜间模式</button>
+  <button class="dark-mode-btn" id="toggleBtn" onclick="toggleDark()">🌙 夜间模式</button>
 
-<script>
-const btn = document.getElementById('toggleBtn');
+  <script>
+    const btn = document.getElementById('toggleBtn');
 
-function updateBtn() {
-  if (document.body.classList.contains('dark')) {
-    btn.textContent = '☀️ 日间模式';
-  } else {
-    btn.textContent = '🌙 夜间模式';
-  }
-}
+    function updateBtn() {
+      if (document.body.classList.contains('dark')) {
+        btn.textContent = '☀️ 日间模式';
+      } else {
+        btn.textContent = '🌙 夜间模式';
+      }
+    }
 
-function toggleDark() {
-  document.body.classList.toggle('dark');
-  updateBtn();
-  localStorage.setItem('darkMode', document.body.classList.contains('dark') ? 'on' : 'off');
-}
+    function toggleDark() {
+      document.body.classList.toggle('dark');
+      updateBtn();
+      localStorage.setItem('darkMode', document.body.classList.contains('dark') ? 'on' : 'off');
+    }
 
-window.addEventListener('load', () => {
-  if (localStorage.getItem('darkMode') === 'on') {
-    document.body.classList.add('dark');
-  }
-  updateBtn();
-});
-</script>
+    window.addEventListener('load', () => {
+      if (localStorage.getItem('darkMode') === 'on') {
+        document.body.classList.add('dark');
+      }
+      updateBtn();
+    });
+  </script>
 </body>
 </html>
