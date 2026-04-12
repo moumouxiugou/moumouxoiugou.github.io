@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>关于我接下来对我博客的开发 - 我的博客</title>
   <style>
+    /* 全局丝滑过渡（核心！） */
+    * {
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
     /* 全局样式 */
     body {
       font-family: "Microsoft YaHei", sans-serif;
@@ -13,14 +18,12 @@
       padding: 20px;
       background-color: #f5f5f5;
       color: #333;
-      transition: all 0.3s;
     }
     .article-container {
       background: #fff;
       padding: 30px;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: all 0.3s;
     }
     h1 {
       color: #2c3e50;
@@ -83,9 +86,6 @@
       cursor: pointer;
       z-index: 999;
     }
-    * {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
   </style>
 </head>
 
@@ -106,31 +106,31 @@
   </div>
 
   <!-- 夜间模式按钮 & 功能 -->
- <button class="dark-mode-btn" id="toggleBtn">🌙 夜间模式</button>
+  <button class="dark-mode-btn" id="toggleBtn" onclick="toggleDark()">🌙 夜间模式</button>
 
-<script>
-const btn = document.getElementById('toggleBtn');
+  <script>
+    const btn = document.getElementById('toggleBtn');
 
-function updateBtn() {
-  if (document.body.classList.contains('dark')) {
-    btn.textContent = '☀️ 日间模式';
-  } else {
-    btn.textContent = '🌙 夜间模式';
-  }
-}
+    function updateBtn() {
+      if (document.body.classList.contains('dark')) {
+        btn.textContent = '☀️ 日间模式';
+      } else {
+        btn.textContent = '🌙 夜间模式';
+      }
+    }
 
-function toggleDark() {
-  document.body.classList.toggle('dark');
-  updateBtn();
-  localStorage.setItem('darkMode', document.body.classList.contains('dark') ? 'on' : 'off');
-}
+    function toggleDark() {
+      document.body.classList.toggle('dark');
+      updateBtn();
+      localStorage.setItem('darkMode', document.body.classList.contains('dark') ? 'on' : 'off');
+    }
 
-window.addEventListener('load', () => {
-  if (localStorage.getItem('darkMode') === 'on') {
-    document.body.classList.add('dark');
-  }
-  updateBtn();
-});
-</script>
+    window.addEventListener('load', () => {
+      if (localStorage.getItem('darkMode') === 'on') {
+        document.body.classList.add('dark');
+      }
+      updateBtn();
+    });
+  </script>
 </body>
 </html>
