@@ -13,12 +13,14 @@
       padding: 20px;
       background-color: #f5f5f5;
       color: #333;
+      transition: all 0.3s;
     }
     .article-container {
       background: #fff;
       padding: 30px;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: all 0.3s;
     }
     h1 {
       color: #2c3e50;
@@ -48,23 +50,70 @@
     .back-home:hover {
       background: #2980b9;
     }
+
+    /* 🌙 夜间模式 */
+    body.dark {
+      background-color: #1a1a1a;
+      color: #eee;
+    }
+    body.dark .article-container {
+      background-color: #2a2a2a;
+      color: #eee;
+    }
+    body.dark h1,
+    body.dark p,
+    body.dark ul,
+    body.dark li {
+      color: #eee !important;
+    }
+    body.dark h1 {
+      border-color: #444;
+    }
+
+    /* 夜间模式按钮 */
+    .dark-mode-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 8px 14px;
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 999;
+    }
   </style>
 </head>
+
 <body>
   <div class="article-container">
     <h1>关于我接下来对我博客的开发</h1>
     <p>记录我对博客的后续开发规划，逐步把这个简单的网站变成我专属的小天地！</p>
     <h2>开发计划清单：</h2>
     <ul>
-      <li><strong>1. 给文章加「发布时间 + 摘要」让博客信息更完整</li>
-      <li><strong>2. 给文章加「目录」方便阅读长文章，快速定位内容</li>
-      <li><strong>3. 给博客加「夜间模式」护眼实用，提升夜间阅读体验</li>
-      <li><strong>4. 给文章里加图片 让文章更生动</li>
-      <li><strong>5. 加「分类 / 标签系统」方便整理和浏览不同类型的文章</li>
+      <li><strong>1. 给文章加「发布时间 + 摘要」让博客信息更完整</strong></li>
+      <li><strong>2. 给文章加「目录」方便阅读长文章，快速定位内容</strong></li>
+      <li><strong>3. 给博客加「夜间模式」护眼实用，提升夜间阅读体验</strong></li>
+      <li><strong>4. 给文章里加图片 让文章更生动</strong></li>
+      <li><strong>5. 加「分类 / 标签系统」方便整理和浏览不同类型的文章</strong></li>
     </ul>
     <p>。。。先到这吧，我太懒了</p>
-    <!-- 返回主页按钮 -->
     <a href="index.html" class="back-home">返回主页</a>
   </div>
+
+  <!-- 夜间模式按钮 & 功能 -->
+  <button class="dark-mode-btn" onclick="toggleDark()">🌙 夜间模式</button>
+  <script>
+    function toggleDark() {
+      document.body.classList.toggle('dark');
+      localStorage.setItem('darkMode', document.body.classList.contains('dark') ? 'on' : 'off');
+    }
+    window.onload = function() {
+      if (localStorage.getItem('darkMode') === 'on') {
+        document.body.classList.add('dark');
+      }
+    }
+  </script>
 </body>
 </html>
