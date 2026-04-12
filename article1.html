@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>我的个人网站诞生记 - 我的博客</title>
+<title>我的个人网站诞生记 - 我的博客</title>
   <style>
     /* 文章页面样式，和主页保持一致 */
     body {
@@ -13,12 +13,14 @@
       padding: 20px;
       background-color: #f5f5f5;
       color: #333;
+      transition: all 0.3s;
     }
     .article-container {
       background: #fff;
       padding: 30px;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: all 0.3s;
     }
     h1 {
       color: #2c3e50;
@@ -43,18 +45,63 @@
     .back-home:hover {
       background: #2980b9;
     }
+
+    /* 🌙 夜间模式 */
+    body.dark {
+      background-color: #1a1a1a;
+      color: #eee;
+    }
+    body.dark .article-container {
+      background-color: #2a2a2a;
+      color: #eee;
+    }
+    body.dark h1,
+    body.dark p {
+      color: #eee !important;
+    }
+    body.dark h1 {
+      border-color: #444;
+    }
+
+    /* 夜间模式按钮 */
+    .dark-mode-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 8px 14px;
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 999;
+    }
   </style>
 </head>
+
 <body>
   <div class="article-container">
     <h1>我的个人网站诞生记</h1>
-    <p>作者：moumouxiugou<p>
-    <p>在这2026年的3月21日<p>
+    <p>作者：moumouxiugou</p>
+    <p>在这2026年的3月21日</p>
     <p>我作为一名初中生，完成了人生第一个个人网站的搭建</p>
     <p>我先是学会了用 HTML 搭建页面结构，又用 CSS 美化样式，还给「关于我」「联系方式」板块加了和图片一样的悬停放大效果。</p>
     <p>是不是给你们帅到了（bushi）</p>
-    <!-- 返回主页按钮 -->
     <a href="index.html" class="back-home">返回主页</a>
   </div>
+
+  <!-- 夜间模式按钮 & 脚本 -->
+  <button class="dark-mode-btn" onclick="toggleDark()">🌙 夜间模式</button>
+  <script>
+    function toggleDark() {
+      document.body.classList.toggle('dark');
+      localStorage.setItem('darkMode', document.body.classList.contains('dark') ? 'on' : 'off');
+    }
+    window.onload = function() {
+      if (localStorage.getItem('darkMode') === 'on') {
+        document.body.classList.add('dark');
+      }
+    }
+  </script>
 </body>
 </html>
