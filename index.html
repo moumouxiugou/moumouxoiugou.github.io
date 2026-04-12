@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我的个人主页 | moumouxoiugou</title>
     <style>
+        /* 全局丝滑过渡（核心！） */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: "Microsoft YaHei", sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
         }
 
         body {
             background-color: #f5f7fa;
             color: #333;
             line-height: 1.6;
-            transition: all 0.3s;
         }
 
         .container {
@@ -49,7 +50,6 @@
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             margin-bottom: 30px;
-            transition: transform 0.3s ease;
         }
 
         .intro h2 {
@@ -68,7 +68,6 @@
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
         }
 
         .contact h2 {
@@ -106,7 +105,6 @@
             background: #fff;
             border-radius: 10px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
         }
         .blog:hover {
             transform: scale(1.02);
@@ -167,6 +165,8 @@
         body.dark header {
             border-color: #444;
         }
+
+        /* 夜间模式按钮 */
         .dark-mode-btn {
             position: fixed;
             top: 20px;
@@ -179,9 +179,6 @@
             cursor: pointer;
             z-index: 999;
         }
-        * {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
     </style>
 </head>
 
@@ -194,7 +191,6 @@
                 height: auto; 
                 border-radius: 10px; 
                 box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-                transition: transform 0.3s ease;
             "
             onmouseover="this.style.transform='scale(1.05)'" 
             onmouseout="this.style.transform='scale(1)'"   
@@ -239,31 +235,31 @@
     </div>
 
     <!-- 夜间模式按钮 & 脚本 -->
-   <button class="dark-mode-btn" id="toggleBtn">🌙 夜间模式</button>
+    <button class="dark-mode-btn" id="toggleBtn" onclick="toggleDark()">🌙 夜间模式</button>
 
-<script>
-const btn = document.getElementById('toggleBtn');
+    <script>
+        const btn = document.getElementById('toggleBtn');
 
-function updateBtnText() {
-  if (document.body.classList.contains('dark')) {
-    btn.textContent = '☀️ 日间模式';
-  } else {
-    btn.textContent = '🌙 夜间模式';
-  }
-}
+        function updateBtnText() {
+            if (document.body.classList.contains('dark')) {
+                btn.textContent = '☀️ 日间模式';
+            } else {
+                btn.textContent = '🌙 夜间模式';
+            }
+        }
 
-function toggleDark() {
-  document.body.classList.toggle('dark');
-  updateBtnText();
-  localStorage.setItem('darkMode', document.body.classList.contains('dark') ? 'on' : 'off');
-}
+        function toggleDark() {
+            document.body.classList.toggle('dark');
+            updateBtnText();
+            localStorage.setItem('darkMode', document.body.classList.contains('dark') ? 'on' : 'off');
+        }
 
-window.onload = function() {
-  if (localStorage.getItem('darkMode') === 'on') {
-    document.body.classList.add('dark');
-  }
-  updateBtnText();
-}
-</script>
+        window.addEventListener('load', () => {
+            if (localStorage.getItem('darkMode') === 'on') {
+                document.body.classList.add('dark');
+            }
+            updateBtnText();
+        });
+    </script>
 </body>
 </html>
