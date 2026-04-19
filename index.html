@@ -13,20 +13,21 @@
             transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
         }
 
-        /* ========== 纯CSS1:1还原你发的MC钻石！！无图片纯代码 ========== */
+        /* ========== 纯CSS逐像素还原！你发的MC原版手持钻石！方块像素！不是圆！0图片 ========== */
         body {
             background-color: #eef8ff;
             color: #333;
             line-height: 1.6;
-            /* 逐像素还原你图里的钻石图标 */
-            background-image: 
-                /* 钻石外轮廓深色 */
-                radial-gradient(#0a4a5a 68%, transparent 68%),
-                /* 钻石主体青蓝色 */
-                radial-gradient(#22d8e0 58%, transparent 58%),
-                /* 钻石高光亮白区域 */
-                radial-gradient(#e0ffff 38%, transparent 38%);
-            background-size: 120px 120px;
+            background-image:
+                /* 钻石深色外边框 */
+                linear-gradient(#0a5a6b 0, #0a5a6b 16.6%, transparent 16.6%, transparent 83.4%, #0a5a6b 83.4%, #0a5a6b 100%),
+                linear-gradient(90deg, #0a5a6b 0, #0a5a6b 16.6%, transparent 16.6%, transparent 83.4%, #0a5a6b 83.4%, #0a5a6b 100%),
+                /* 钻石青蓝色主体 */
+                linear-gradient(#22d8e0 25%, transparent 25%, transparent 75%, #22d8e0 75%, #22d8e0 100%),
+                linear-gradient(90deg, #22d8e0 25%, transparent 25%, transparent 75%, #22d8e0 75%, #22d8e0 100%),
+                /* 钻石左上白色高光 */
+                linear-gradient(to bottom right, #ffffff 0, #ffffff 42%, transparent 42%);
+            background-size: 100px 100px;
             background-repeat: repeat;
             background-attachment: fixed;
             background-position: center;
@@ -140,7 +141,7 @@
             background: #fff;
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0,0,0.05);
             margin: 40px 0;
         }
         .relax:hover {
@@ -187,15 +188,17 @@
             }
         }
 
-        /* ========== 夜间模式 同样纯CSS钻石背景 ========== */
+        /* ========== 夜间模式 同款纯CSS钻石背景 ========== */
         body.dark {
             background-color: #0f172a;
             color: #eee;
-            background-image: 
-                radial-gradient(#0a4a5a 68%, transparent 68%),
-                radial-gradient(#22d8e0 58%, transparent 58%),
-                radial-gradient(#e0ffff 38%, transparent 38%);
-            background-size: 120px 120px;
+            background-image:
+                linear-gradient(#0a5a6b 0, #0a5a6b 16.6%, transparent 16.6%, transparent 83.4%, #0a5a6b 83.4%, #0a5a6b 100%),
+                linear-gradient(90deg, #0a5a6b 0, #0a5a6b 16.6%, transparent 16.6%, transparent 83.4%, #0a5a6b 83.4%, #0a5a6b 100%),
+                linear-gradient(#22d8e0 25%, transparent 25%, transparent 75%, #22d8e0 75%, #22d8e0 100%),
+                linear-gradient(90deg, #22d8e0 25%, transparent 25%, transparent 75%, #22d8e0 75%, #22d8e0 100%),
+                linear-gradient(to bottom right, #ffffff 0, #ffffff 42%, transparent 42%);
+            background-size: 100px 100px;
             background-repeat: repeat;
             background-attachment: fixed;
             background-position: center;
