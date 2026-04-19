@@ -13,18 +13,23 @@
             transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
         }
 
+        /* ========== 纯CSS1:1还原你发的MC钻石！！无图片纯代码 ========== */
         body {
-            background-color: #f5f7fa;
+            background-color: #eef8ff;
             color: #333;
             line-height: 1.6;
-            background-image: linear-gradient(#22a8cc 2px, transparent 2px),
-                              linear-gradient(90deg, #22a8cc 2px, transparent 2px),
-                              linear-gradient(#1188bb 1px, transparent 1px),
-                              linear-gradient(90deg, #1188bb 1px, transparent 1px);
-            background-size: 60px 60px, 60px 60px, 12px 12px, 12px 12px;
-            background-position: 0 0, 0 0, 0 0, 0 0;
+            /* 逐像素还原你图里的钻石图标 */
+            background-image: 
+                /* 钻石外轮廓深色 */
+                radial-gradient(#0a4a5a 68%, transparent 68%),
+                /* 钻石主体青蓝色 */
+                radial-gradient(#22d8e0 58%, transparent 58%),
+                /* 钻石高光亮白区域 */
+                radial-gradient(#e0ffff 38%, transparent 38%);
+            background-size: 120px 120px;
+            background-repeat: repeat;
             background-attachment: fixed;
-            background-color: #e6f7ff;
+            background-position: center;
         }
 
         .container {
@@ -182,16 +187,18 @@
             }
         }
 
+        /* ========== 夜间模式 同样纯CSS钻石背景 ========== */
         body.dark {
             background-color: #0f172a;
             color: #eee;
-            background-image: linear-gradient(#1890c7 2px, transparent 2px),
-                              linear-gradient(90deg, #1890c7 2px, transparent 2px),
-                              linear-gradient(#0e70aa 1px, transparent 1px),
-                              linear-gradient(90deg, #0e70aa 1px, transparent 1px);
-            background-size: 60px 60px, 60px 60px, 12px 12px, 12px 12px;
-            background-position: 0 0, 0 0, 0 0, 0 0;
+            background-image: 
+                radial-gradient(#0a4a5a 68%, transparent 68%),
+                radial-gradient(#22d8e0 58%, transparent 58%),
+                radial-gradient(#e0ffff 38%, transparent 38%);
+            background-size: 120px 120px;
+            background-repeat: repeat;
             background-attachment: fixed;
+            background-position: center;
         }
         body.dark .intro,
         body.dark .contact,
